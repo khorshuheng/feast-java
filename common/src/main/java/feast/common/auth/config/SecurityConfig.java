@@ -106,7 +106,9 @@ public class SecurityConfig {
   @Bean
   @ConditionalOnProperty(prefix = "feast.security.authorization", name = "enabled")
   AuthorizationProvider authorizationProvider() {
-    if (securityProperties.getAuthentication().isEnabled()
+    if (securityProperties.getAuthentication().isEnabled(
+
+    )
         && securityProperties.getAuthorization().isEnabled()) {
       // Merge authentication and authorization options to create HttpAuthorizationProvider.
       Map<String, String> options = securityProperties.getAuthorization().getOptions();
